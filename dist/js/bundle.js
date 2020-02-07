@@ -94,7 +94,7 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _test__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./test */ \"./src/js/test.js\");\n\r\n\r\n\r\n// Global App Controller\r\n\r\n\r\n\r\nconsole.log(`I imported ${_test__WEBPACK_IMPORTED_MODULE_0__[\"default\"]} from another module`);\n\n//# sourceURL=webpack:///./src/js/main.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _test__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./test */ \"./src/js/test.js\");\n!(function webpackMissingModule() { var e = new Error(\"Cannot find module '../scss/main'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }());\n\r\n\r\n// Global App Controller\r\n\r\n\r\n\r\nconsole.log(`I imported ${_test__WEBPACK_IMPORTED_MODULE_0__[\"default\"]} from another module`);\n\n//# sourceURL=webpack:///./src/js/main.js?");
 
 /***/ }),
 
@@ -106,7 +106,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _tes
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n\r\n\r\nconsole.log('imported module');\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (23);\n\n//# sourceURL=webpack:///./src/js/test.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n\r\n\r\nconsole.log('imported module');\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (35);\n\n//# sourceURL=webpack:///./src/js/test.js?");
 
 /***/ })
 

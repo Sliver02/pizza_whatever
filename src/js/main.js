@@ -1,6 +1,7 @@
 
 
 // Global App Controller
-import num from './test';
+import './scrollSmooth';
+import '../scss/main';
 
-console.log(`I imported ${num} from another module`);
+
