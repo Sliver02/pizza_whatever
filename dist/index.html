@@ -14,31 +14,58 @@
     </head>
 <body>
 
-    <div id="start" class="section">
+    <div id="#" class="section">
         <div class="start">
             <img class="start__pizza" src="img/pizza-svgrepo-com.svg" alt="">
-            <a class="scroll-frwd" href="#recipes">
-                <div class="start__title btn btn--frwd">
+                <div class="start__title btn btn--next">
                     <div class="start__title--bg"></div>
                     <h1>Pizza Wathever</h1>
                     <h2>Make your own Pizza!</h2>
                 </div>
-            </a>
         </div>
     </div>
 
     <div id="recipes" class="section">
+        <div class="close btn btn--prev">
+            <i class="material-icons">keyboard_arrow_up</i>
+        </div>
         <div class="recipes">
-            <div class="start">
-                <a class="scroll-frwd" href="#start">
-                    <div class="start__title btn btn--bwrd">
-                        <div class="start__title--bg"></div>
-                        <h1>Pizza Wathever</h1>
-                        <h2>Make your own Pizza!</h2>
+            <div class="recipes__preview btn btn--next">
+                <div class="recipes__img-wrap">
+                    <div class="recipes__thumbnail">
+                        <img src="./img/chad-montano-MqT0asuoIcU-unsplash.jpg" alt="thumb">
                     </div>
-                </a>
+                </div>
+                <div class="recipes__text-wrap">
+                    <h1 class="recipes__title">
+                        Pizza al Ricino!
+                    </h1>
+                    <p class="recipes__desc">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, natus.
+                    </p>
+                </div>
+                <div class="recipes__stats">
+                    <div class="recipes__time">
+                        <i class="material-icons">av_timer</i>
+                        <span> 1:30</span>
+                    </div>
+                    <div class="recipes__score">
+                        <i class="material-icons">star</i>
+                        <i class="material-icons">star</i>
+                        <i class="material-icons">star_half</i>
+                        <i class="material-icons">star_border</i>
+                        <i class="material-icons">star_border</i>
+                    </div>
+                </div>
             </div>
         </div>
+    </div>
+
+    <div id="instruction" class="section">
+        <div class="close btn btn--prev">
+            <i class="material-icons">keyboard_arrow_up</i>
+        </div>
+
     </div>
     
     <script type="text/javascript" src="js/bundle.js"></script>

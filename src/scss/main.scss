@@ -23,6 +23,10 @@ html, body {
     scroll-behavior: smooth;
 }
 
+h1, h2 {
+    font-family: 'Damion', cursive;
+}
+
 a {
     color: white;
     text-decoration: none;
@@ -47,6 +51,7 @@ a {
     justify-content: center;
 }
 
+// GENERIC
 .btn {
     cursor: pointer;
 
@@ -61,9 +66,29 @@ a {
 
 .section {
     @include flex-center();
+    position: relative;
     height: 100vh;
+
+    .close {
+        position: absolute;
+        //right: 10vw;
+        top: 5vh;
+
+        i {
+            font-size: 8rem;
+        }
+
+        &:hover {
+            -webkit-animation: blip 0.5s infinite alternate linear; /* Safari 4+ */
+            -moz-animation:    blip 0.5s infinite alternate linear; /* Fx 5+ */
+            -o-animation:      blip 0.5s infinite alternate linear; /* Opera 22+ */
+            animation:         blip 0.5s infinite alternate; /* IE 10+, Fx 29+ */
+        }
+    }
 }
 
+
+// SECTIONS
 .start {
     @include flex-center();
     position: relative;
@@ -84,7 +109,6 @@ a {
         @include flex-center();
         flex-direction: column;
 
-        font-family: 'Damion', cursive;
         position: relative;
         // min-width: 400px;
         // min-height: 150px;
@@ -143,4 +167,84 @@ a {
             }
         } 
     }
+}
+
+.recipes {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1rem;
+
+    width: 80%;
+    
+    &__preview {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        grid-template-rows:  repeat(2, auto);
+        grid-gap: 1rem;
+
+        //max-width: 20vw;
+        max-height: fit-content;
+
+        background: linear-gradient(to right bottom, white, $light-gray);
+        color: $dark-gray;
+        padding: 0.8rem;
+        border-radius: 0.8rem;
+    }
+
+    &__img-wrap {
+        @include flex-center();
+
+        grid-row-start: 1;
+        grid-row-end: 3;
+
+        height: 100%;
+        width: 100%;
+
+    }
+        &__thumbnail {
+            @include flex-center();
+
+            height: 120px;
+            width: 120px;
+            overflow: hidden;
+            position: relative;
+            border-radius: 50%;
+
+            img {
+                position: absolute;
+                min-width: 100%;
+                max-height: 100%;
+            }
+        }
+
+    &__text-wrap {
+
+    }
+        &__title {
+
+        }
+
+        &__desc {
+
+        }
+
+    &__stats {
+        @include flex-center();
+        justify-content: left;
+    
+        grid-column-start: 2;
+    }
+        &__time {
+            @include flex-center();
+
+
+        }
+
+        &__score {
+            margin-left: 15px;
+        }
+}
+
+.instruction {
+    
 }

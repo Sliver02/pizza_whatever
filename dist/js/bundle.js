@@ -94,19 +94,29 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _test__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./test */ \"./src/js/test.js\");\n!(function webpackMissingModule() { var e = new Error(\"Cannot find module '../scss/main'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }());\n\r\n\r\n// Global App Controller\r\n\r\n\r\n\r\nconsole.log(`I imported ${_test__WEBPACK_IMPORTED_MODULE_0__[\"default\"]} from another module`);\n\n//# sourceURL=webpack:///./src/js/main.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scrollSmooth__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./scrollSmooth */ \"./src/js/scrollSmooth.js\");\n/* harmony import */ var _scrollSmooth__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_scrollSmooth__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _scss_main__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../scss/main */ \"./src/scss/main.scss\");\n/* harmony import */ var _scss_main__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_scss_main__WEBPACK_IMPORTED_MODULE_1__);\n\r\n\r\n// Global App Controller\r\n\r\n\r\n\r\n\r\n\n\n//# sourceURL=webpack:///./src/js/main.js?");
 
 /***/ }),
 
-/***/ "./src/js/test.js":
-/*!************************!*\
-  !*** ./src/js/test.js ***!
-  \************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ "./src/js/scrollSmooth.js":
+/*!********************************!*\
+  !*** ./src/js/scrollSmooth.js ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n\r\n\r\nconsole.log('imported module');\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (35);\n\n//# sourceURL=webpack:///./src/js/test.js?");
+eval("//var currentSection = 0;\r\n// var start = document.getElementById('start');\r\n// var recipes = document.getElementById('recipes');\r\n\r\n// var btnNext = start.getElementsByClassName('btn--next')[0];\r\n// var btnPrev = recipes.getElementsByClassName('btn--prev')[0];\r\n\r\n// console.log(btnFrwd);\r\n// console.log(btnPrev);\r\n\r\n// btnFrwd.addEventListener('click', (e) => {\r\n//     console.log('sei un coglione');\r\n//     recipes.scrollIntoView({ \r\n//         behavior: 'smooth' \r\n//     });\r\n// });\r\n\r\n// btnPrev.addEventListener('click', (e) => {\r\n//     console.log('sei un coglione ma ALLINSU');\r\n//     start.scrollIntoView({ \r\n//         behavior: 'smooth' \r\n//     });\r\n// });\r\n\r\n\r\n// Array of all elements with section class\r\nvar sections = document.querySelectorAll('.section');\r\n\r\n// loop trhough each section to pass click events\r\nsections.forEach((section, index) => {\r\n\r\n    // Select dynamically the \r\n    var btnNext = section.querySelector('.btn--next');\r\n    var btnPrev = section.querySelector('.btn--prev');\r\n\r\n    if (index <= sections.length && btnNext != undefined) {\r\n\r\n        var nextSection = sections[index + 1];\r\n        \r\n        btnNext.addEventListener('click', (e) => {\r\n            history.pushState({\"id\":nextSection.id}, nextSection.id, `/#${nextSection.id}`);\r\n            nextSection.scrollIntoView({\r\n                behavior: 'smooth'\r\n            });\r\n        });\r\n\r\n        \r\n    } else if (index >= 0 && btnPrev != undefined) {\r\n        \r\n        var prevSection = sections[index - 1];\r\n\r\n        btnPrev.addEventListener('click', (e) => {\r\n            history.pushState({\"id\":prevSection.id}, prevSection.id, `/#${prevSection.id}`);\r\n            prevSection.scrollIntoView({\r\n                behavior: 'smooth'\r\n            });\r\n        });\r\n    }\r\n});\n\n//# sourceURL=webpack:///./src/js/scrollSmooth.js?");
+
+/***/ }),
+
+/***/ "./src/scss/main.scss":
+/*!****************************!*\
+  !*** ./src/scss/main.scss ***!
+  \****************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/scss/main.scss?");
 
 /***/ })
 
