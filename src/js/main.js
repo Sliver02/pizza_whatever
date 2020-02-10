@@ -1,7 +1,7 @@
 
 
 // Global App Controller
-import * as scroll from './scrollSmooth';
+import scroll from './scrollSmooth';
 import '../scss/main';
 
 
