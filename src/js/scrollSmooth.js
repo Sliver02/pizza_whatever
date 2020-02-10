@@ -44,36 +44,36 @@
 // });
 
 
-// var sections = document.querySelectorAll('.section');
+var sections = document.querySelectorAll('.section');
 
-// sections.forEach((section, index) => {
-//     var btnFrwd = section.getElementsByClassName('btn--frwd')[0];
-//     var btnBwrd = section.getElementsByClassName('btn--bwrd')[0];
+sections.forEach((section, index) => {
+    var btnFrwd = section.getElementsByClassName('btn--frwd')[0];
+    var btnBwrd = section.getElementsByClassName('btn--bwrd')[0];
 
-//     console.log(index);
-//     console.log(btnFrwd);
-//     console.log(btnBwrd);
+    // console.log(index);
+    // console.log(btnFrwd);
+    // console.log(btnBwrd);
 
 
-//     if (index <= sections.length && btnFrwd != undefined) {
+    if (index <= sections.length && btnFrwd != undefined) {
 
-//         console.log('qua non entra vero scemo?');
+        // console.log('qua non entra vero scemo?');
         
-//         btnFrwd.addEventListener('click', (e) => {
-//             sections[index + 1].scrollIntoView({
-//                 behavior: 'smooth'
-//             });
-//         });
+        btnFrwd.addEventListener('click', (e) => {
+            sections[index + 1].scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
         
-//     } else if (index >= 0 && btnBwrd != undefined) {
+    } else if (index >= 0 && btnBwrd != undefined) {
 
-//         btnBwrd.addEventListener('click', (e) => {
-//             sections[index - 1].scrollIntoView({
-//                 behavior: 'smooth'
-//             });
-//         });
-//     }
-// });
+        btnBwrd.addEventListener('click', (e) => {
+            sections[index - 1].scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    }
+});
 
 //*********************************** NOPE *********************/
 

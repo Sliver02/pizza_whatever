@@ -1,10 +1,11 @@
 const path = require('path');
 const isDevelopment = process.env.NODE_ENV === 'development';
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     
-    entry: './src/js/main.js',
+    entry: ['./src/js/index.js'],
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'js/bundle.js',
@@ -13,15 +14,26 @@ module.exports = {
         contentBase: './dist',
     },
     plugins: [
+        new HtmlWebpackPlugin({
+            filename: 'index.html',
+            template: './src/index.html'
+        }),
         new MiniCssExtractPlugin({
             // filename: isDevelopment ? 'css/[name].css' : 'css/[name].[hash].css',
             // chunkFilename: isDevelopment ? 'css/[id].css' : 'css/[id].[hash].css',
             filename: isDevelopment ? 'css/[name].css' : 'css/[name].css',
             chunkFilename: isDevelopment ? 'css/[id].css' : 'css/[id].css'
-        })
+        }),
     ],
     module: {
         rules: [
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader'
+                }
+            },
             {
                 test: /\.module\.s(a|c)ss$/,
                 loader: [
@@ -55,7 +67,7 @@ module.exports = {
                     }
                 ]
             }
-        ]
+        ],
     },
     resolve: {
         extensions: ['.js', '.jsx', '.scss']
