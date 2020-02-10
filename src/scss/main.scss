@@ -55,13 +55,13 @@ a {
 .btn {
     cursor: pointer;
 
-    &--frwd {
+    // &--frwd {
 
-    }
+    // }
 
-    &--bwrd {
+    // &--bwrd {
         
-    }
+    // }
 }
 
 .section {
@@ -217,16 +217,16 @@ a {
             }
         }
 
-    &__text-wrap {
+    // &__text-wrap {
 
-    }
-        &__title {
+    // }
+    //     &__title {
 
-        }
+    //     }
 
-        &__desc {
+    //     &__desc {
 
-        }
+    //     }
 
     &__stats {
         @include flex-center();
@@ -245,6 +245,6 @@ a {
         }
 }
 
-.instruction {
+// .instruction {
     
-}
+// }
