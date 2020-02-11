@@ -19,7 +19,7 @@ html, body, input {
     line-height: 1.4;
     color: white;
     background-image: linear-gradient(to right bottom, $light-red, $red);
-    overflow: hidden;
+    // overflow: hidden;
     scroll-behavior: smooth;
 }
 
@@ -184,6 +184,8 @@ a {
 }
 
 .slider {
+    align-self: flex-start;
+    margin: auto;
     width: 80%;
 
     &__header {
@@ -231,18 +233,22 @@ a {
         }
     
     &__page {
-        display: flex;
-        flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            // grid-template-rows:  auto;
+            grid-gap: 1rem;
+
 
         .recipe {
-            box-sizing: content-box;
-            flex: 20%;
-            margin:5px;
+            // flex: 20%;
+            // margin:5px;
     
             display: grid;
-            // grid-template-columns: repeat(2, auto);
-            // grid-template-rows:  repeat(2, auto);
+            grid-template-columns: repeat(2, auto);
+            grid-template-rows:  repeat(2, auto);
             grid-gap: 1rem;
+
+            // min-width: 450px;
     
             //max-width: 20vw;
             max-height: fit-content;
@@ -292,17 +298,17 @@ a {
                 &__stats {
                     @include flex-center();
                     justify-content: left;
-                
+                    flex-wrap: wrap;
                     grid-column-start: 2;
                 }
                     &__time {
                         @include flex-center();
             
             
+                        margin-right: 15px;
                     }
             
                     &__score {
-                        margin-left: 15px;
                     }
         }
     }
@@ -333,6 +339,8 @@ a {
                 padding: 0.2rem 0.8rem ;
                 margin: 0 2rem;
                 margin-top: -0.5rem;
+
+                border-radius: 5px;
             }
         }
     }

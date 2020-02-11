@@ -10,6 +10,7 @@ import Search from './models/Search';
  * - Linked recipes
  */
 const state = {};
+
 const controlSearch = async () => {
     // 1. get query form view
     const query = 'pizza'; //todo
@@ -34,44 +35,36 @@ const controlSearch = async () => {
 // });
 
 const search = new Search('pizza');
-console.log(search);
+// console.log(search);
 search.getResults();
 
+//////////////////////////////////////////////////////////////////////////////
+var slideLimit = 12;
 
 function multiplyPreview(count, deep) {
-    var node = document.querySelector('.recipe');
+    var recipe = document.querySelector('.recipe');
 
     for (var i = 0, copy; i < count - 1; i++) {
-        copy = node.cloneNode(deep);
-        node.parentNode.insertBefore(copy, node);
+        copy = recipe.cloneNode(deep);
+        recipe.parentNode.insertBefore(copy, recipe);
     }
 }
 
 function addSlide(count, deep) {
-    var node = document.querySelector('.slide');
+    var page = document.querySelectorAll('.slider__page');
 
     window.alert('WIP 12 max-recipes for Now!');
-
-    // for (var i=0; i < Math.round(count/12); i++) {
-
-    //     copy = node.cloneNode(deep);
-    //     node.parentNode.insertBefore(copy, node);
-
-    //     // Get the last <li> element ("Milk") of <ul> with id="myList2"
-    //     var itm = document.getElementById("myList2").lastChild;
-
-    //     // Copy the <li> element and its child nodes
-    //     var cln = itm.cloneNode(true);
-
-    //     // Append the cloned <li> element to <ul> with id="myList1"
-    //     document.getElementById("myList1").appendChild(cln); 
+    
+    // for (var i=0; i < Math.round(count / slideLimit); i++) {
+    //     copy = page.cloneNode(deep);
+    //     page.parentNode.insertBefore(copy, page);
     // }
 
 }
 
 function displayPreview(count) {
 
-    if (count <= 12) {
+    if (count <= slideLimit) {
         multiplyPreview(count, true);
     } else {
         addSlide(count, true);
