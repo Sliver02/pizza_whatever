@@ -67,7 +67,7 @@ a {
 .section {
     @include flex-center();
     position: relative;
-    height: 100vh;
+    min-height: 100vh;
 
     .close {
         position: absolute;
