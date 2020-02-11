@@ -1,6 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Damion|Pacifico|Roboto&display=swap);
 @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css);
 @import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+/**
+* spin animation
+*/
 @-moz-keyframes spin {
   from {
     -moz-transform: rotate(0deg); }
@@ -19,6 +22,27 @@
   to {
     transform: rotate(360deg); } }
 
+/**
+* blip animation
+*/
+@-moz-keyframes blip {
+  from {
+    -moz-transform: translateY(0); }
+  to {
+    -moz-transform: translateY(-10px); } }
+
+@-webkit-keyframes blip {
+  from {
+    -webkit-transform: translateY(0); }
+  to {
+    -webkit-transform: translateY(-10px); } }
+
+@keyframes blip {
+  from {
+    transform: translateY(0); }
+  to {
+    transform: translateY(-10px); } }
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -31,6 +55,9 @@ html, body {
   background-image: linear-gradient(to right bottom, #F48982, #d86161);
   overflow: hidden;
   scroll-behavior: smooth; }
+
+h1, h2 {
+  font-family: 'Damion', cursive; }
 
 a {
   color: white;
@@ -51,7 +78,22 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
   height: 100vh; }
+  .section .close {
+    position: absolute;
+    top: 5vh; }
+    .section .close i {
+      font-size: 8rem; }
+    .section .close:hover {
+      -webkit-animation: blip 0.5s infinite alternate linear;
+      /* Safari 4+ */
+      -moz-animation: blip 0.5s infinite alternate linear;
+      /* Fx 5+ */
+      -o-animation: blip 0.5s infinite alternate linear;
+      /* Opera 22+ */
+      animation: blip 0.5s infinite alternate;
+      /* IE 10+, Fx 29+ */ }
 
 .start {
   display: flex;
@@ -75,7 +117,6 @@ a {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    font-family: 'Damion', cursive;
     position: relative;
     transform: rotate(-10deg);
     padding: 20px 30px;
@@ -109,4 +150,53 @@ a {
         top: 20%;
         height: 80%;
         width: 150%; }
+
+.recipes {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1rem;
+  width: 80%; }
+  .recipes__preview {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(2, auto);
+    grid-gap: 1rem;
+    max-height: fit-content;
+    background: linear-gradient(to right bottom, white, #eeeeee);
+    color: #333;
+    padding: 0.8rem;
+    border-radius: 0.8rem; }
+  .recipes__img-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    height: 100%;
+    width: 100%; }
+  .recipes__thumbnail {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 120px;
+    width: 120px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 50%; }
+    .recipes__thumbnail img {
+      position: absolute;
+      min-width: 100%;
+      max-height: 100%; }
+  .recipes__stats {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-content: left;
+    grid-column-start: 2; }
+  .recipes__time {
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+  .recipes__score {
+    margin-left: 15px; }
 

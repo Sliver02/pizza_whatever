@@ -1,6 +1,10 @@
 
 
 // KEYFRAMES
+
+/**
+* spin animation
+*/
 @-moz-keyframes spin {
     from { -moz-transform: rotate(0deg); }
     to { -moz-transform: rotate(360deg); }
@@ -12,4 +16,20 @@
 @keyframes spin {
     from {transform:rotate(0deg);}
     to {transform:rotate(360deg);}
+}
+
+/**
+* blip animation
+*/
+@-moz-keyframes blip {
+    from { -moz-transform: translateY(0); }
+    to { -moz-transform: translateY(-10px); }
+}
+@-webkit-keyframes blip {
+    from { -webkit-transform: translateY(0); }
+    to { -webkit-transform: translateY(-10px); }
+}
+@keyframes blip {
+    from {transform:translateY(0);}
+    to {transform:translateY(-10px);}
 }
