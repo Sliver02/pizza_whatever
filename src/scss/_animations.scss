@@ -22,7 +22,7 @@
 * blip animation
 */
 @-moz-keyframes blip {
-    from { -moz-transform: translateY(0); }
+    from { -moz-transform: translateY(5); }
     to { -moz-transform: translateY(-10px); }
 }
 @-webkit-keyframes blip {
@@ -32,4 +32,33 @@
 @keyframes blip {
     from {transform:translateY(0);}
     to {transform:translateY(-10px);}
+}
+
+@-moz-keyframes blip-out {
+    from { -moz-transform: translateY(-10px); }
+    to { -moz-transform: translateY(0); }
+}
+@-webkit-keyframes blip-out {
+    from { -webkit-transform: translateY(-10px); }
+    to { -webkit-transform: translateY(0); }
+}
+@keyframes blip-out {
+    from {transform:translateY(-10px);}
+    to {transform:translateY(0);}
+}
+
+/**
+* grow on hover
+*/
+@-moz-keyframes grow {
+    from { -moz-transform: translateY(-10px); }
+    to { -moz-transform: translateY(0); }
+}
+@-webkit-keyframes grow {
+    from { -webkit-transform: translateY(-10px); }
+    to { -webkit-transform: translateY(0); }
+}
+@keyframes grow {
+    from {transform:translateY(-10px);}
+    to {transform:translateY(0);}
 }
