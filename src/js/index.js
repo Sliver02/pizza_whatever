@@ -1,7 +1,9 @@
 // Global App Controller
 import '../scss/main';
-import scroll from './scrollSmooth';
+import scroll from './views/scrollView';
 import Search from './models/Search';
+import * as searchView from './views/searchView';
+import {elements} from './views/base';
 
 /** Global state of the app
  * - Search object
@@ -13,64 +15,71 @@ const state = {};
 
 const controlSearch = async () => {
     // 1. get query form view
-    const query = 'pizza'; //todo
+    const query = searchView.getInput();
 
     if (query) {
-        // 2. new search object and add to state
-        state.search = new Search(query);
+        try {
+            // 2. new search object and add to state
+            state.search = new Search(query);
+    
+            // 3. Prepare UI for results
+            searchView.clearInput();
+            searchView.clearResults();
+    
+            // 4. Search for recipes
+            await state.search.getResults();
+    
+            // 5. Render results on UI
+            searchView.renderResults(state.search.result);
+        } catch (error) {
+            // window.alert(error);
+            searchView.clearInput();
+            searchView.clearResults();
 
-        // 3. Prepare UI for results
-
-        // 4. Search for recipes
-        await state.search.getResults();
-
-        // 5. Render results on UI
-        // console.log(state.search.result);
+            searchView.renderEmpty();
+        }
     }
 };
 
-// document.querySelector('.search').addEventListener('click', e => {
-//     e.preventDefault();
-//     controlSearch();
-// });
-
-const search = new Search('pizza');
-// console.log(search);
-search.getResults();
+searchView.renderEmpty();
+elements.searchForm.addEventListener('submit', e => {
+    e.preventDefault();
+    controlSearch();
+});
 
 //////////////////////////////////////////////////////////////////////////////
-var slideLimit = 12;
+// var slideLimit = 12;
 
-function multiplyPreview(count, deep) {
-    var recipe = document.querySelector('.recipe');
+// function multiplyPreview(count, deep) {
+//     var recipe = document.querySelector('.recipe');
 
-    for (var i = 0, copy; i < count - 1; i++) {
-        copy = recipe.cloneNode(deep);
-        recipe.parentNode.insertBefore(copy, recipe);
-    }
-}
+//     for (var i = 0, copy; i < count - 1; i++) {
+//         copy = recipe.cloneNode(deep);
+//         recipe.parentNode.insertBefore(copy, recipe);
+//     }
+// }
 
-function addSlide(count, deep) {
-    var page = document.querySelectorAll('.slider__page');
+// function addSlide(count, deep) {
+//     var page = document.querySelectorAll('.slider__page');
 
-    window.alert('WIP 12 max-recipes for Now!');
+//     window.alert('WIP 12 max-recipes for Now!');
     
-    // for (var i=0; i < Math.round(count / slideLimit); i++) {
-    //     copy = page.cloneNode(deep);
-    //     page.parentNode.insertBefore(copy, page);
-    // }
+//     // for (var i=0; i < Math.round(count / slideLimit); i++) {
+//     //     copy = page.cloneNode(deep);
+//     //     page.parentNode.insertBefore(copy, page);
+//     // }
 
-}
+// }
 
-function displayPreview(count) {
+// function displayPreview(count) {
 
-    if (count <= slideLimit) {
-        multiplyPreview(count, true);
-    } else {
-        addSlide(count, true);
-    }
+//     if (count <= slideLimit) {
+//         multiplyPreview(count, true);
+//     } else {
+//         addSlide(count, true);
+//     }
 
     scroll.scrollSections();
-}
+// }
 
-displayPreview(12);
+// displayPreview(12);

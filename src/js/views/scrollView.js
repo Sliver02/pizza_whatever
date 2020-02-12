@@ -1,11 +1,10 @@
- export default {
-     
+import {elements} from './base';
+ 
+export default {
     scrollSections() {
-        // Array of all elements with section class
-        var sections = document.querySelectorAll('.section');
 
         // loop trhough each section to pass click events
-        sections.forEach((section, index) => {
+        elements.sections.forEach((section, index) => {
 
             // Select dynamically the 
             var next = section.querySelectorAll('.btn--next');
@@ -13,9 +12,9 @@
 
             next.forEach((btnNext) => {
 
-                if (index <= sections.length && btnNext != undefined) {
+                if (index <= elements.sections.length && btnNext != undefined) {
             
-                    var nextSection = sections[index + 1];
+                    var nextSection = elements.sections[index + 1];
                     
                     btnNext.addEventListener('click', (e) => {
                         history.pushState({"id":nextSection.id}, nextSection.id, `/#${nextSection.id}`);
@@ -30,7 +29,7 @@
             prev.forEach((btnPrev) => {
 
                 if (index >= 0 && btnPrev != undefined) {
-                    var prevSection = sections[index - 1];
+                    var prevSection = elements.sections[index - 1];
 
                     btnPrev.addEventListener('click', (e) => {
                         history.pushState({"id":prevSection.id}, prevSection.id, `/#${prevSection.id}`);
@@ -42,5 +41,4 @@
             });
         });
     }
-
-}
+};
