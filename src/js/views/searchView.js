@@ -114,7 +114,7 @@ const renderButtons = (page, numRecipes, resPage) => {
     elements.sliderFooter.insertAdjacentHTML('afterbegin', button);
 };
 
-export const renderResults = (recipes, page = 1, resPage = 10) => {
+export const renderResults = (recipes, page = 1, resPage = 12) => {
     // first and last item in the recepies page
     const start = (page - 1) * resPage; 
     const end = page * resPage; 
