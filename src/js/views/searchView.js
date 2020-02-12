@@ -47,8 +47,9 @@ const limitRecipeTitle = (title, limit = 25) => {
 }
 
 const renderRecipe = recipe => {
+    
     const markup = `
-        <a class="recipe btn btn--next" href="${recipe.recipe_id}">
+        <div class="recipe btn btn--next">
             <div class="recipe__img-wrap">
                 <div class="recipe__thumbnail">
                     <img src="${recipe.image_url}" alt="thumb">
@@ -75,11 +76,49 @@ const renderRecipe = recipe => {
                     <i class="material-icons">star_border</i>
                 </div>
             </div>
-        </a>
+        </div>
     `;
     elements.sliderPage.insertAdjacentHTML('beforeend', markup);
 };
 
-export const renderResults = recipes => {
-    recipes.forEach(renderRecipe);
+const createButton = (page, type) => `
+        <div class="nav__arrow nav__arrow--${type}" data-goto="${type === 'prev' ? page - 1 : page + 1}">
+            <i class="material-icons">arrow_${type === 'prev' ? 'back' : 'forward'}_ios</i>
+            <span>
+                Page ${type === 'prev' ? page - 1 : page + 1}
+            </span>
+        </div>
+    `;
+
+const renderButtons = (page, numRecipes, resPage) => {
+    const pages = Math.ceil(numRecipes / resPage);
+
+    console.log('all good');
+
+    let button;
+    if (page === 1) {
+
+        button = createButton(page, 'next');
+
+    } else if (page < pages) {
+
+        button = `
+            ${createButton(page, 'prev')} 
+            ${createButton(page, 'next')}
+        `;
+    } else if (page === pages) {
+
+        button = createButton(page, 'prev');
+    }
+
+    elements.sliderFooter.insertAdjacentHTML('afterbegin', button);
+};
+
+export const renderResults = (recipes, page = 1, resPage = 10) => {
+    // first and last item in the recepies page
+    const start = (page - 1) * resPage; 
+    const end = page * resPage; 
+
+    recipes.slice(start, end).forEach(renderRecipe);
+    renderButtons(page, recipes.length, resPage);
 };

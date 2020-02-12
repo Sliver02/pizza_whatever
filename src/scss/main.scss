@@ -351,6 +351,15 @@ button {
 
         .nav{
             &__arrow {
+                cursor: pointer;
+                text-align: center;
+
+                background: linear-gradient(to right bottom, $yellow, $light-red);
+                padding: 0.2rem 0.8rem ;
+                margin: 0 2rem;
+                // margin-top: -0.5rem;
+
+                border-radius: 5px;
 
                 &--back {
                     cursor: pointer;
@@ -364,15 +373,7 @@ button {
             }
 
             &__number {
-                cursor: pointer;
-                text-align: center;
-
-                background: linear-gradient(to right bottom, $yellow, $light-red);
-                padding: 0.2rem 0.8rem ;
-                margin: 0 2rem;
-                margin-top: -0.5rem;
-
-                border-radius: 5px;
+                
             }
         }
     }

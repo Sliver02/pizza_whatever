@@ -5,6 +5,7 @@ export const elements = {
     searchInput: document.querySelector('.search__field'),
     searchBtn: document.querySelector('.search__btn'),
     sliderPage: document.querySelector('.slider__page'),
+    sliderFooter: document.querySelector('.slider__footer'),
 };
 
 export const elementStrings = {
@@ -13,9 +14,9 @@ export const elementStrings = {
 
 export const renderLoader = parent => {
     const loader = `
-    <div class="${elementStrings.loader}">
-     <img src="img/pizza-svgrepo-com.svg" alt="">    
-    </div>
+        <div class="${elementStrings.loader}">
+            <img src="img/pizza-svgrepo-com.svg" alt="">    
+        </div>
     `;
 
     parent.insertAdjacentHTML('afterBegin', loader);

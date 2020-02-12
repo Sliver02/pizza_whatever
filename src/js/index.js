@@ -33,6 +33,9 @@ const controlSearch = async () => {
             // 5. Render results on UI
             clearLoader();
             searchView.renderResults(state.search.result);
+
+            scroll.scrollSections();
+
         } catch (error) {
             // window.alert(error);
             searchView.clearInput();
@@ -44,10 +47,13 @@ const controlSearch = async () => {
 };
 
 searchView.renderEmpty();
+scroll.scrollSections();
+
 elements.searchForm.addEventListener('submit', e => {
     e.preventDefault();
     controlSearch();
 });
+
 
 //////////////////////////////////////////////////////////////////////////////
 // var slideLimit = 12;
@@ -81,7 +87,6 @@ elements.searchForm.addEventListener('submit', e => {
 //         addSlide(count, true);
 //     }
 
-    scroll.scrollSections();
 // }
 
 // displayPreview(12);
