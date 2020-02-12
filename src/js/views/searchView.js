@@ -20,6 +20,32 @@ export const renderEmpty = recipes => {
     }
 };
 
+const limitRecipeTitle = (title, limit = 25) => {
+    const newTitle = [];
+
+    if (title.length > limit) {
+
+        /**
+         * divide words in title by the spaces between them
+         * then start a reduce method(accumulator, current)
+         * in each iteration we will test if the already insterd 
+         * text plus the next word will surpass the limit
+         */
+        
+        title.split(' ').reduce((acc, cur) => {
+
+            if (acc+cur.length <= limit) {
+                newTitle.push(cur);
+            }
+            return acc + cur.length;
+
+        }, 0);
+
+        return `${newTitle.join(' ')} ...`;
+    }
+    return title;
+}
+
 const renderRecipe = recipe => {
     const markup = `
         <a class="recipe btn btn--next" href="${recipe.recipe_id}">
@@ -29,9 +55,9 @@ const renderRecipe = recipe => {
                 </div>
             </div>
             <div class="recipe__text-wrap">
-                <h3 class="recipe__title">
-                    ${recipe.title}
-                </h3>
+                <h2 class="recipe__title">
+                    ${limitRecipeTitle(recipe.title)}
+                </h2>
                 <p class="recipe__desc">
                     ${recipe.publisher}
                 </p>
