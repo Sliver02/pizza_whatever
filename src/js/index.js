@@ -3,7 +3,7 @@ import '../scss/main';
 import scroll from './views/scrollView';
 import Search from './models/Search';
 import * as searchView from './views/searchView';
-import {elements, renderLoader} from './views/base';
+import {elements, renderLoader, clearLoader} from './views/base';
 
 /** Global state of the app
  * - Search object
@@ -31,6 +31,7 @@ const controlSearch = async () => {
             await state.search.getResults();
     
             // 5. Render results on UI
+            clearLoader();
             searchView.renderResults(state.search.result);
         } catch (error) {
             // window.alert(error);

@@ -12,7 +12,7 @@ export default {
 
             next.forEach((btnNext) => {
 
-                if (index <= elements.sections.length && btnNext != undefined) {
+                if (btnNext && index <= elements.sections.length) {
             
                     var nextSection = elements.sections[index + 1];
                     
@@ -28,7 +28,7 @@ export default {
 
             prev.forEach((btnPrev) => {
 
-                if (index >= 0 && btnPrev != undefined) {
+                if (btnPrev && index >= 0) {
                     var prevSection = elements.sections[index - 1];
 
                     btnPrev.addEventListener('click', (e) => {

@@ -105,7 +105,7 @@ button {
     margin: 5rem auto;
     text-align: center;
     
-    svg {
+    img {
         height: 5.5rem;
         width: 5.5rem;
         fill: $light-red;
@@ -124,7 +124,6 @@ button {
         position: absolute;
         // transform: rotate(-60deg);
         width: 80%;
-        transition: 1s all;
 
         -webkit-animation: spin 30s infinite linear; /* Safari 4+ */
         -moz-animation:    spin 30s infinite linear; /* Fx 5+ */
