@@ -6,6 +6,7 @@ export const elements = {
     searchBtn: document.querySelector('.search__btn'),
     sliderPage: document.querySelector('.slider__page'),
     sliderFooter: document.querySelector('.slider__footer'),
+    navBtns: document.querySelector('.slider__footer').querySelector('.nav')
 };
 
 export const elementStrings = {

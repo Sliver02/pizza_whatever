@@ -1,10 +1,14 @@
 import {elements} from './base';
+import scroll from './scrollView';
 
 export const getInput = () => elements.searchInput.value;
 
 export const clearInput = () => elements.searchInput.value = '';
 
-export const clearResults = () => elements.sliderPage.innerHTML = '';
+export const clearResults = () => {
+    elements.sliderPage.innerHTML = '';
+    elements.navBtns.innerHTML = '';
+};
 
 const renderPlaceHolder = () => {
     const markup = `
@@ -83,7 +87,7 @@ const renderRecipe = recipe => {
 
 const createButton = (page, type) => `
         <div class="nav__arrow nav__arrow--${type}" data-goto="${type === 'prev' ? page - 1 : page + 1}">
-            <i class="material-icons">arrow_${type === 'prev' ? 'back' : 'forward'}_ios</i>
+            <i class="fas fa-chevron-circle-${type === 'prev' ? 'left' : 'right'}"></i>
             <span>
                 Page ${type === 'prev' ? page - 1 : page + 1}
             </span>
@@ -93,7 +97,7 @@ const createButton = (page, type) => `
 const renderButtons = (page, numRecipes, resPage) => {
     const pages = Math.ceil(numRecipes / resPage);
 
-    console.log('all good');
+    // console.log('all good');
 
     let button;
     if (page === 1) {
@@ -111,7 +115,7 @@ const renderButtons = (page, numRecipes, resPage) => {
         button = createButton(page, 'prev');
     }
 
-    elements.sliderFooter.insertAdjacentHTML('afterbegin', button);
+    elements.navBtns.insertAdjacentHTML('afterbegin', button);
 };
 
 export const renderResults = (recipes, page = 1, resPage = 12) => {
@@ -120,5 +124,6 @@ export const renderResults = (recipes, page = 1, resPage = 12) => {
     const end = page * resPage; 
 
     recipes.slice(start, end).forEach(renderRecipe);
+    scroll.scrollSections();
     renderButtons(page, recipes.length, resPage);
 };

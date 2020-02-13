@@ -34,8 +34,6 @@ const controlSearch = async () => {
             clearLoader();
             searchView.renderResults(state.search.result);
 
-            scroll.scrollSections();
-
         } catch (error) {
             // window.alert(error);
             searchView.clearInput();
@@ -46,13 +44,25 @@ const controlSearch = async () => {
     }
 };
 
-searchView.renderEmpty();
-scroll.scrollSections();
 
 elements.searchForm.addEventListener('submit', e => {
     e.preventDefault();
     controlSearch();
 });
+
+elements.sliderFooter.addEventListener('click', e => {
+    const btn = e.target.closest('.nav__arrow');
+    
+    if (btn) {
+        const goToPage = parseInt(btn.dataset.goto, 10);
+        // console.log(goToPage);
+        searchView.clearResults();
+        searchView.renderResults(state.search.result, goToPage);
+    }
+});
+
+searchView.renderEmpty();
+scroll.scrollSections();
 
 
 //////////////////////////////////////////////////////////////////////////////
