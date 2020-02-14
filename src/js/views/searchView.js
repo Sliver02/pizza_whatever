@@ -53,9 +53,9 @@ const limitRecipeTitle = (title, limit = 25) => {
 const renderRecipe = recipe => {
     
     const markup = `
-        <div class="recipe btn btn--next">
+        <a class="recipe btn btn--next" href="#${recipe.recipe_id}">
             <div class="recipe__img-wrap">
-                <div class="recipe__thumbnail">
+                <div class="recipe__img">
                     <img src="${recipe.image_url}" alt="thumb">
                 </div>
             </div>
@@ -80,7 +80,7 @@ const renderRecipe = recipe => {
                     <i class="material-icons">star_border</i>
                 </div>
             </div>
-        </div>
+        </a>
     `;
     elements.sliderPage.insertAdjacentHTML('beforeend', markup);
 };

@@ -2,7 +2,9 @@
 import '../scss/main';
 import scroll from './views/scrollView';
 import Search from './models/Search';
+import Recipe from './models/Recipe';
 import * as searchView from './views/searchView';
+import * as recipeView from './views/recipeView';
 import {elements, renderLoader, clearLoader} from './views/base';
 
 /** Global state of the app
@@ -36,6 +38,7 @@ const controlSearch = async () => {
 
         } catch (error) {
             // window.alert(error);
+            alert('Error processing the search');
             searchView.clearInput();
             searchView.clearResults();
 
@@ -65,10 +68,53 @@ searchView.renderEmpty();
 scroll.scrollSections();
 
 
+
+
+/**
+ * RECIPE CONTROLLER
+ */
+// const r = new Recipe(46959);
+// r.getRecipe();
+// console.log(r);
+ 
+const controlRecipe = async () => {
+    const id = window.location.hash.replace('#', '');
+    // console.log(id);
+
+    if (id) {
+        // prepare UI for changes
+
+        // create new recipe object
+        state.recipe = new Recipe(id);
+
+        try {
+            // Get recipe data
+            await state.recipe.getRecipe();
+
+            console.log(state.recipe.ingredients);
+            state.recipe.parseIngredients();
+    
+            // calculate servings and time
+            state.recipe.calcTime();
+            state.recipe.calcServings();
+    
+            // render recipe
+            // console.log(state.recipe);
+        } catch(error) {
+            console.log(error);
+            alert('Error processing recipe!');
+        }
+    }
+};
+
+window.addEventListener('hashchange', controlRecipe);
+// window.addEventListener('load', controlRecipe);
+['hashchange'].forEach(event => window.addEventListener(event, controlRecipe));
+
 //////////////////////////////////////////////////////////////////////////////
 // var slideLimit = 12;
 
-// function multiplyPreview(count, deep) {
+// function multiplyPreview(count, deep) (
 //     var recipe = document.querySelector('.recipe');
 
 //     for (var i = 0, copy; i < count - 1; i++) {

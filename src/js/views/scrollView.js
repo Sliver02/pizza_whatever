@@ -10,9 +10,6 @@ export default {
             var next = section.querySelectorAll('.btn--next');
             var prev = section.querySelectorAll('.btn--prev');
 
-            console.log(next);
-            console.log(prev);
-
             next.forEach((btnNext) => {
 
                 if (btnNext && index <= elements.sections.length) {
