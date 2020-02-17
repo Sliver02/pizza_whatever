@@ -4,5 +4,13 @@ $yellow: #FBDB89;
 $light-red: #F48982;
 $red: #d86161;
 
-$dark-gray: #333;
+$dark-gray: #575757;
+$gray: #b6b6b6;
 $light-gray: #eeeeee;
+
+// Mixins
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

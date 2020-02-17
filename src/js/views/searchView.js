@@ -50,29 +50,29 @@ const limitRecipeTitle = (title, limit = 25) => {
     return title;
 }
 
-const renderRecipe = recipe => {
+const renderResult = result => {
     
     const markup = `
-        <a class="recipe btn btn--next" href="#${recipe.recipe_id}">
-            <div class="recipe__img-wrap">
-                <div class="recipe__img">
-                    <img src="${recipe.image_url}" alt="thumb">
+        <a class="result btn btn--next" href="#${result.recipe_id}">
+            <div class="result__img-wrap">
+                <div class="result__img">
+                    <img src="${result.image_url}" alt="thumb">
                 </div>
             </div>
-            <div class="recipe__text-wrap">
-                <h2 class="recipe__title">
-                    ${limitRecipeTitle(recipe.title)}
+            <div class="result__text-wrap">
+                <h2 class="result__title">
+                    ${limitRecipeTitle(result.title)}
                 </h2>
-                <p class="recipe__desc">
-                    ${recipe.publisher}
+                <p class="result__desc">
+                    ${result.publisher}
                 </p>
             </div>
-            <div class="recipe__stats">
-                <div class="recipe__time">
-                    <i class="material-icons">av_timer</i>
+            <div class="result__stats">
+                <div class="result__time">
+                    <i class="material-icons">timer</i>
                     <span> 1:30</span>
                 </div>
-                <div class="recipe__score">
+                <div class="result__score">
                     <i class="material-icons">star</i>
                     <i class="material-icons">star</i>
                     <i class="material-icons">star_half</i>
@@ -94,8 +94,8 @@ const createButton = (page, type) => `
         </div>
     `;
 
-const renderButtons = (page, numRecipes, resPage) => {
-    const pages = Math.ceil(numRecipes / resPage);
+const renderButtons = (page, numResults, resPage) => {
+    const pages = Math.ceil(numResults / resPage);
 
     // console.log('all good');
 
@@ -118,12 +118,12 @@ const renderButtons = (page, numRecipes, resPage) => {
     elements.navBtns.insertAdjacentHTML('afterbegin', button);
 };
 
-export const renderResults = (recipes, page = 1, resPage = 12) => {
+export const renderResults = (results, page = 1, resPage = 12) => {
     // first and last item in the recepies page
     const start = (page - 1) * resPage; 
     const end = page * resPage; 
 
-    recipes.slice(start, end).forEach(renderRecipe);
+    results.slice(start, end).forEach(renderResult);
     scroll.scrollSections();
-    renderButtons(page, recipes.length, resPage);
+    renderButtons(page, results.length, resPage);
 };

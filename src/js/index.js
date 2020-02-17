@@ -1,5 +1,5 @@
 // Global App Controller
-import '../scss/main';
+import '../scss/__main';
 import scroll from './views/scrollView';
 import Search from './models/Search';
 import Recipe from './models/Recipe';
@@ -23,6 +23,7 @@ const controlSearch = async () => {
         try {
             // 2. new search object and add to state
             state.search = new Search(query);
+            
     
             // 3. Prepare UI for results
             searchView.clearInput();
@@ -83,6 +84,8 @@ const controlRecipe = async () => {
 
     if (id) {
         // prepare UI for changes
+        recipeView.clearResults();
+        renderLoader(elements.recipe);
 
         // create new recipe object
         state.recipe = new Recipe(id);
@@ -100,8 +103,12 @@ const controlRecipe = async () => {
     
             // render recipe
             // console.log(state.recipe);
+            clearLoader();
+            recipeView.renderRecipe(state.recipe);
+
         } catch(error) {
             console.log(error);
+            recipeView.clearResults();
             alert('Error processing recipe!');
         }
     }
@@ -109,7 +116,9 @@ const controlRecipe = async () => {
 
 window.addEventListener('hashchange', controlRecipe);
 // window.addEventListener('load', controlRecipe);
-['hashchange'].forEach(event => window.addEventListener(event, controlRecipe));
+// ['hashchange'].forEach(event => window.addEventListener(event, controlRecipe));
+
+// document.querySelectorAll('.recipe').forEach(recipe => recipe.addEventListener('click', controlRecipe));
 
 //////////////////////////////////////////////////////////////////////////////
 // var slideLimit = 12;
