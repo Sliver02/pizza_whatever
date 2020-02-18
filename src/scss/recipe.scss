@@ -4,13 +4,13 @@
 
 .recipe {
     align-self: flex-start;
-    margin: auto;
+    margin: 120px 0;
     position: relative;
     width: 80%;
 
     &::after {
         content: '';
-        margin-bottom: 60px;
+        margin-bottom: 120px;
         display: block;
     }
 
@@ -90,8 +90,20 @@
             .portions {
                 @include flex-center();
 
+                &:hover {
+                    .modify-protion {
+                        -webkit-animation: fadein 0.5s linear; /* Safari 4+ */
+                        -moz-animation:    fadein 0.5s linear; /* Fx 6+ */
+                        -o-animation:      fadein 0.5s linear;
+                        animation: fadein 0.5s;
+                        opacity: 1;
+                    }
+                }
+
                 .modify-protion {
                 @include flex-center();
+                opacity: 0;
+
                 i {
                         font-size: 1.3rem;
                         margin-right: 0;

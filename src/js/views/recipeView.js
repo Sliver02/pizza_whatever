@@ -53,7 +53,10 @@ export const renderRecipe = recipe => {
                 </div>
                 <div class="portions">
                     <i class="material-icons">people</i>
-                    <span>${recipe.servings} Portions</span>
+                    <span>
+                     <span class="servings">${recipe.servings}</span>
+                      Portions
+                    </span>
 
                     <div class="modify-protion">
                         <i class="material-icons btn btn--add">add_circle</i>
@@ -94,4 +97,15 @@ export const renderRecipe = recipe => {
 
     elements.recipe.insertAdjacentHTML('afterbegin', markup);
     scroll.scrollSections();
+};
+
+export const updateServingsIngredients = recipe => {
+    // update servings
+    document.querySelector('.servings').textContent = recipe.servings;
+
+    // update ingredients
+    const countElements = Array.from(document.querySelectorAll('.recipe__count'));
+    countElements.forEach((el, i) => {
+        el.textContent = formatCount(recipe.ingredients[i].count);
+    });
 };

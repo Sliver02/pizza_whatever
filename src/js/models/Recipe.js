@@ -92,7 +92,7 @@ export default class Recipe {
         });
 
         this.ingredients = newIngredients;
-        console.log(this.ingredients );
+        // console.log(this.ingredients );
     }
 
     updateServings(type) {
@@ -106,5 +106,7 @@ export default class Recipe {
         });
 
         this.servings = newServings;
+
+        console.log('-update servings');
     }
 }

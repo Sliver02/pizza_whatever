@@ -28,7 +28,7 @@ export default {
                         //     behavior: 'smooth'
                         // });
                         window.scrollBy(0, scrollDistance);
-                        console.log("DOWN "+scrollDistance);
+                        // console.log("DOWN "+scrollDistance);
                     });
                 }
             });
@@ -46,7 +46,7 @@ export default {
                         // });
                         
                         window.scrollBy(0, -scrollDistance);
-                        console.log("UP "+scrollDistance);
+                        // console.log("UP "+scrollDistance);
                     });
                 }
             });

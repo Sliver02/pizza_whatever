@@ -94,7 +94,7 @@ const controlRecipe = async () => {
             // Get recipe data
             await state.recipe.getRecipe();
 
-            console.log(state.recipe.ingredients);
+            // console.log(state.recipe.ingredients);
             state.recipe.parseIngredients();
     
             // calculate servings and time
@@ -121,9 +121,10 @@ elements.recipe.addEventListener('click', e => {
     if (e.target.matches('.btn--remove, .btn--remove *')) {
         if (state.recipe.servings > 1) {
             state.recipe.updateServings('remove');
+            console.log('remove serving');
         }
-        console.log('asdasd');
     } else if (e.target.matches('.btn--add, .btn--add *')) {
             state.recipe.updateServings('add');
+            console.log('add serving');
     }
 });
