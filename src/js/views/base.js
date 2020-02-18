@@ -8,6 +8,7 @@ export const elements = {
     sliderFooter: document.querySelector('.slider__footer'),
     navBtns: document.querySelector('.slider__footer').querySelector('.nav'),
     recipe: document.querySelector('.recipe'),
+    recipeContainer: document.querySelector('.recipe__container'),
     ingredients: document.querySelector('.recipe__ingredient')
 };
 

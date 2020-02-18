@@ -1,10 +1,7 @@
 
 
-// KEYFRAMES
 
-/**
-* spin animation
-*/
+//Spin Animation
 @-moz-keyframes spin {
     from { -moz-transform: rotate(0deg); }
     to { -moz-transform: rotate(360deg); }
@@ -18,9 +15,7 @@
     to {transform:rotate(360deg);}
 }
 
-/**
-* blip animation
-*/
+// Blip Animation
 @-moz-keyframes blip {
     from { -moz-transform: translateY(5); }
     to { -moz-transform: translateY(-10px); }
@@ -47,9 +42,7 @@
     to {transform:translateY(0);}
 }
 
-/**
-* grow on hover
-*/
+// fade in bottom
 @-moz-keyframes grow {
     from { -moz-transform: translateY(-10px); }
     to { -moz-transform: translateY(0); }

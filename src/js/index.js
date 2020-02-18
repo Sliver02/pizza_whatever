@@ -115,43 +115,15 @@ const controlRecipe = async () => {
 };
 
 window.addEventListener('hashchange', controlRecipe);
-// window.addEventListener('load', controlRecipe);
-// ['hashchange'].forEach(event => window.addEventListener(event, controlRecipe));
 
-// document.querySelectorAll('.recipe').forEach(recipe => recipe.addEventListener('click', controlRecipe));
-
-//////////////////////////////////////////////////////////////////////////////
-// var slideLimit = 12;
-
-// function multiplyPreview(count, deep) (
-//     var recipe = document.querySelector('.recipe');
-
-//     for (var i = 0, copy; i < count - 1; i++) {
-//         copy = recipe.cloneNode(deep);
-//         recipe.parentNode.insertBefore(copy, recipe);
-//     }
-// }
-
-// function addSlide(count, deep) {
-//     var page = document.querySelectorAll('.slider__page');
-
-//     window.alert('WIP 12 max-recipes for Now!');
-    
-//     // for (var i=0; i < Math.round(count / slideLimit); i++) {
-//     //     copy = page.cloneNode(deep);
-//     //     page.parentNode.insertBefore(copy, page);
-//     // }
-
-// }
-
-// function displayPreview(count) {
-
-//     if (count <= slideLimit) {
-//         multiplyPreview(count, true);
-//     } else {
-//         addSlide(count, true);
-//     }
-
-// }
-
-// displayPreview(12);
+// handling recipe btn clicks
+elements.recipe.addEventListener('click', e => {
+    if (e.target.matches('.btn--remove, .btn--remove *')) {
+        if (state.recipe.servings > 1) {
+            state.recipe.updateServings('remove');
+        }
+        console.log('asdasd');
+    } else if (e.target.matches('.btn--add, .btn--add *')) {
+            state.recipe.updateServings('add');
+    }
+});

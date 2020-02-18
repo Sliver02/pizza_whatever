@@ -1,22 +1,41 @@
 import scroll from './scrollView';
 import { elements } from "./base";
-
-const createIngredient = ingredient => `
-    <li class="recipe__item">
-        <i class="recipe__check material-icons">check_circle</i>
-        <span class="recipe__count">${ingredient.count}</span>
-        <span class="recipe__unit">${ingredient.unit}</span>
-        <span class="recipe__ingredient">${ingredient.ingredient}</span>
-    </li>
-`;
+import { Fraction } from 'fractional';
 
 export const clearResults = () => {
     elements.recipe.innerHTML = '';
 };
 
+const formatCount = count => {
+    if (count) {
+        const [int, dec] =count.toString().split('.').map(el => parseInt(el, 10));
+
+        if (!dec) return count;
+
+        if (int === 0) {
+            const fr = new Fraction(count); 
+            return `${fr.numerator}/${fr.denominator}`;
+        } else {
+            const fr = new Fraction(count - int);
+            return `${int} ${fr.numerator}/${fr.denominator}`;
+        }
+    }
+    return '?';
+};
+
+const createIngredient = ingredient => `
+    <li class="recipe__item">
+        <i class="recipe__check material-icons">check_circle</i>
+        <span class="recipe__count"> ${formatCount(ingredient.count)} </span> 
+        <span class="recipe__unit"> ${ingredient.unit} </span> 
+        <span class="recipe__ingredient"> ${ingredient.ingredient} </span> 
+    </li>
+`;
+
 export const renderRecipe = recipe => {
     const markup = `
             
+        <div class="recipe__container">
 
             <div class="recipe__img-wrap">
                 <img src="${recipe.img}" alt="${recipe.title}">
@@ -35,6 +54,11 @@ export const renderRecipe = recipe => {
                 <div class="portions">
                     <i class="material-icons">people</i>
                     <span>${recipe.servings} Portions</span>
+
+                    <div class="modify-protion">
+                        <i class="material-icons btn btn--add">add_circle</i>
+                        <i class="material-icons btn btn--remove">remove_circle</i>
+                    </div>
                 </div>
                 
             </div>
@@ -61,6 +85,11 @@ export const renderRecipe = recipe => {
                 <i class="material-icons">cancel</i>
             </div>
 
+            <a class="btn--add-cart btn">
+                <i class="material-icons">shopping_cart</i> Add to Shopping list
+            </a>
+
+        </div>
     `;
 
     elements.recipe.insertAdjacentHTML('afterbegin', markup);

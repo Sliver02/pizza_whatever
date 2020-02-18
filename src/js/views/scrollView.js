@@ -10,17 +10,25 @@ export default {
             var next = section.querySelectorAll('.btn--next');
             var prev = section.querySelectorAll('.btn--prev');
 
+            let scrollDistance = document.documentElement.clientHeight;
+
             next.forEach((btnNext) => {
 
                 if (btnNext && index <= elements.sections.length) {
             
                     var nextSection = elements.sections[index + 1];
+
+                    // if (scrollDistance < 0) {
+                    //     scrollDistance *= -1;
+                    // }
                     
                     btnNext.addEventListener('click', (e) => {
                         history.pushState({"id":nextSection.id}, nextSection.id, `/#${nextSection.id}`);
-                        nextSection.scrollIntoView(true, {
-                            behavior: 'smooth'
-                        });
+                        // nextSection.scrollIntoView(true, {
+                        //     behavior: 'smooth'
+                        // });
+                        window.scrollBy(0, scrollDistance);
+                        console.log("DOWN "+scrollDistance);
                     });
                 }
             });
@@ -33,9 +41,12 @@ export default {
 
                     btnPrev.addEventListener('click', (e) => {
                         history.pushState({"id":prevSection.id}, prevSection.id, `/#${prevSection.id}`);
-                        prevSection.scrollIntoView(true, {
-                            behavior: 'smooth'
-                        });
+                        // prevSection.scrollIntoView(true, {
+                        //     behavior: 'smooth'
+                        // });
+                        
+                        window.scrollBy(0, -scrollDistance);
+                        console.log("UP "+scrollDistance);
                     });
                 }
             });

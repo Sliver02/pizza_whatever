@@ -5,7 +5,6 @@
 
 @import 'variables';
 @import 'animations';
-@import 'mobile';
 
 @import 'start';
 @import 'slider';
@@ -66,6 +65,15 @@ button {
     &--bwrd {
         
     }
+
+    &--add-cart {
+        @include flex-center;
+        background: linear-gradient(to right bottom, $yellow, $light-red);
+        padding: 1.5rem 2rem;
+        margin: 2rem;
+        border-radius: 5px;
+        width: max-content;
+    }
 }
 
 .section {
@@ -113,5 +121,6 @@ button {
 }
 
 
+@import 'mobile';
 
 

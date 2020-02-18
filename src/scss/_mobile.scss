@@ -1,0 +1,85 @@
+// small
+@media (max-width: 766px) {
+    // .recipe {
+    //     // width: 100%;
+
+    //     &__container {
+    //         grid-template-columns: auto;
+    //         grid-template-rows: 40vh auto auto;
+    //     }
+
+        
+    //         &__img-wrap {
+    //             min-height: auto;
+    //         }
+
+    //         &__info {
+    //             bottom: 0;
+    //         }
+    // }
+
+    .slider {
+        .search {
+            margin: 30px 0;
+        }
+
+        .close {
+            display: none;
+        }
+    }
+}
+
+@media (max-width: 950px) {
+
+    #recipe {
+        align-items: flex-start;
+    }
+
+    .recipe {
+        // width: 100%;
+        margin: 120px 0;
+        
+
+        &__container {
+            grid-template-columns: auto;
+            grid-template-rows: 40vh auto auto;
+        }
+
+        
+            &__img-wrap {
+                min-height: auto;
+            }
+
+            &__info {
+                bottom: 0;
+            }
+            
+
+    }
+
+    
+}
+
+// smartphone
+@media (min-width: 640px) and (max-width: 767px) {
+
+}
+
+//tablet
+@media (min-width: 768px) and (max-width: 950px) {
+    .recipe {
+        &__list {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+}
+
+//whide
+@media (min-width: 1400px) {
+    .recipe {
+        &__list {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+}
