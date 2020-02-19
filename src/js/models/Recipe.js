@@ -96,17 +96,19 @@ export default class Recipe {
     }
 
     updateServings(type) {
-        
         //servings
         const newServings = type === 'remove' ? this.servings - 1 : this.servings + 1;
 
         // ingredients
         this.ingredients.forEach(ing => {
             ing.count *= (newServings / this.servings);
+            console.log(ing);
         });
 
         this.servings = newServings;
 
-        console.log('-update servings');
+        console.log(this.servings);
+
+        console.log('-update servings '+ type);
     }
 }

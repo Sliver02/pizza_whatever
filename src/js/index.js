@@ -121,10 +121,10 @@ elements.recipe.addEventListener('click', e => {
     if (e.target.matches('.btn--remove, .btn--remove *')) {
         if (state.recipe.servings > 1) {
             state.recipe.updateServings('remove');
-            console.log('remove serving');
+            recipeView.updateServingsIngredients(state.recipe);
         }
     } else if (e.target.matches('.btn--add, .btn--add *')) {
-            state.recipe.updateServings('add');
-            console.log('add serving');
+        state.recipe.updateServings('add');
+        recipeView.updateServingsIngredients(state.recipe);
     }
 });
